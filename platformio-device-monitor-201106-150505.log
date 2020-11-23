@@ -1,0 +1,858 @@
+0 1A
+0 FF
+0 FF
+0 FF
+0 23
+0 32
+0 70
+0 30
+received msg p 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 31
+received msg p 1
+Cur q = 1
+========identify.==========
+Send out data
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 1
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 64
+0 01
+0 00
+0 00
+0 00
+received msg d 1
+Cur q = 1
+0 23
+0 35
+0 64
+0 02
+0 00
+0 00
+0 00
+received msg d 2
+Cur q = 1
+0 23
+0 35
+0 64
+0 03
+0 00
+0 00
+0 00
+received msg d 3
+Cur q = 1
+0 23
+0 35
+0 64
+0 02
+0 00
+0 00
+0 00
+received msg d 2
+Cur q = 1
+0 23
+0 35
+0 64
+0 03
+0 00
+0 00
+0 00
+received msg d 3
+Cur q = 1
+0 23
+0 35
+0 64
+0 04
+0 00
+0 00
+0 00
+received msg d 4
+Cur q = 1
+0 23
+0 35
+0 64
+0 03
+0 00
+0 00
+0 00
+received msg d 3
+Cur q = 1
+0 23
+0 35
+0 64
+0 02
+0 00
+0 00
+0 00
+received msg d 2
+Cur q = 1
+0 23
+0 35
+0 64
+0 01
+0 00
+0 00
+0 00
+received msg d 1
+Cur q = 1
+0 23
+0 35
+0 64
+0 00
+0 00
+0 00
+0 00
+received msg d 0
+Cur q = 1
+0 23
+0 35
+0 64
+0 01
+0 00
+0 00
+0 00
+received msg d 1
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Guru Meditation Error: Core  1 panic'ed (Cache disabled but cached memory region accessed)
+Core 1 register dump:
+PC      : 0x400eed04  PS      : 0x00060034  A0      : 0x800811f0  A1      : 0x3ffbe780  
+A2      : 0x3ffc01bc  A3      : 0x00000001  A4      : 0xe635776f  A5      : 0x00000000  
+A6      : 0x3ff42000  A7      : 0x700000bb  A8      : 0x800810f2  A9      : 0x00000000  
+A10     : 0x3ffb8260  A11     : 0x3ffbe78c  A12     : 0x800876f3  A13     : 0x3ffb1c10  
+A14     : 0x00009d00  A15     : 0x3ffb858c  SAR     : 0x00000001  EXCCAUSE: 0x00000007  
+EXCVADDR: 0x00000000  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0x00000000  
+Core 1 was running in ISR context:
+EPC1    : 0x400621df  EPC2    : 0x00000000  EPC3    : 0x00000000  EPC4    : 0x400eed04
+
+Backtrace: 0x400eed04:0x3ffbe780 0x400811ed:0x3ffbe7b0 0x400850f1:0x3ffbe7d0 0x400621dc:0x3ffb1b40 0x4008e573:0x3ffb1b60 0x4008e5aa:0x3ffb1b90 0x4008e900:0x3ffb1bc0 0x4008eb6d:0x3ffb1be0 0x40087479:0x3ffb1c10 0x400876f0:0x3ffb1c30 0x400dc6a9:0x3ffb1c80 0x400dacb9:0x3ffb1ca0 0x400dae9a:0x3ffb1cc0 0x400d9e8b:0x3ffb1d40 0x400da42a:0x3ffb1dc0 0x400d9851:0x3ffb1e30 0x400d38f5:0x3ffb1e70 0x400d2472:0x3ffb1e90 0x400d2891:0x3ffb1f70 0x400d1806:0x3ffb1f90 0x400d5ed5:0x3ffb1fb0 0x40088d19:0x3ffb1fd0
+  #0  0x400eed04:0x3ffbe780 in circular_queue<unsigned int, void>::push(unsigned int&&) at .pio\libdeps\esp32dev\EspSoftwareSerial\src\circular_queue/circular_queue.h:269
+  #1  0x400811ed:0x3ffbe7b0 in __onPinInterrupt at C:\users\fx\.platformio\packages\framework-arduinoespressif32\cores\esp32/esp32-hal-gpio.c:278
+  #2  0x400850f1:0x3ffbe7d0 in _xt_lowint1 at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/xtensa_vectors.S:1154
+  #3  0x400621dc:0x3ffb1b40 in ?? ??:0
+  #4  0x4008e573:0x3ffb1b60 in esp_rom_spiflash_read_status at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/spi_flash_rom_patch.c:413
+  #5  0x4008e5aa:0x3ffb1b90 in esp_rom_spiflash_wait_idle at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/spi_flash_rom_patch.c:413
+  #6  0x4008e900:0x3ffb1bc0 in esp_rom_spiflash_program_page_internal at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/spi_flash_rom_patch.c:413
+  #7  0x4008eb6d:0x3ffb1be0 in esp_rom_spiflash_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/spi_flash_rom_patch.c:481
+  #8  0x40087479:0x3ffb1c10 in spi_flash_write_inner at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/flash_ops.c:266
+  #9  0x400876f0:0x3ffb1c30 in spi_flash_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/flash_ops.c:397
+  #10 0x400dc6a9:0x3ffb1c80 in nvs::nvs_flash_write(unsigned int, void const*, unsigned int) at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/nvs_flash/src/nvs_ops.cpp:66
+  #11 0x400dacb9:0x3ffb1ca0 in nvs::Page::writeEntryData(unsigned char const*, unsigned int) at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/nvs_flash/src/nvs_page.cpp:849
+  #12 0x400dae9a:0x3ffb1cc0 in nvs::Page::writeItem(unsigned char, nvs::ItemType, char const*, void const*, unsigned int, unsigned char) at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/nvs_flash/src/nvs_page.cpp:849
+  #13 0x400d9e8b:0x3ffb1d40 in nvs::Storage::writeMultiPageBlob(unsigned char, char const*, void const*, unsigned int, nvs::VerOffset) at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/nvs_flash/src/nvs_storage.cpp:557
+  #14 0x400da42a:0x3ffb1dc0 in nvs::Storage::writeItem(unsigned char, nvs::ItemType, char const*, void const*, unsigned int) at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/nvs_flash/src/nvs_storage.cpp:557
+  #15 0x400d9851:0x3ffb1e30 in nvs_set_blob at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/nvs_flash/src/nvs_api.cpp:521
+  #16 0x400d38f5:0x3ffb1e70 in EEPROMClass::commit() at C:\users\fx\.platformio\packages\framework-arduinoespressif32\libraries\EEPROM\src/EEPROM.cpp:331
+  #17 0x400d2472:0x3ffb1e90 in setting_l() at include/config.h:173
+      (inlined by) setting_l() at include/states.h:136
+  #18 0x400d2891:0x3ffb1f70 in Fsm::run_machine() at .pio\libdeps\esp32dev\arduino-fsm/Fsm.cpp:145
+  #19 0x400d1806:0x3ffb1f90 in loop() at src/main.cpp:39
+  #20 0x400d5ed5:0x3ffb1fb0 in loopTask(void*) at C:\users\fx\.platformio\packages\framework-arduinoespressif32\cores\esp32/main.cpp:19
+  #21 0x40088d19:0x3ffb1fd0 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:8896
+load:0x40080400,len:5828
+entry 0x400806ac
+Start system
+Parameter initing.
+Signature = 180
+Found old parameter :
+cal[0]=1.00000
+cal[1]=1.00000
+cal[2]=1.00000
+sp    =11.46
+l_min =7.50
+l_max =98.30
+delay =2000.00
+
+Parameter inited.
+RTC inited.
+=========startup.==========
+0 23
+0 32
+0 70
+0 31
+received msg p 1
+Cur q = 1
+========identify.==========
+Send out data
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 1
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+=========setting.==========
+0 30
+received msg r 0
+Cur q = 1
+Send out data
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 1A
+0 FF
+0 FF
+0 FF
+0 23
+0 35
+0 73
+0 D0
+0 07
+0 00
+0 00
+received msg s 2000
+Cur q = 1
+0 23
+0 35
+0 73
+0 1D
+0 09
+0 00
+0 00
+received msg s 2333
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Same data!!
+Same data!!
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 73
+0 52
+0 0E
+0 00
+0 00
+received msg s 3666
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Same data!!
+Same data!!
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 73
+0 9A
+0 02
+0 00
+0 00
+received msg s 666
+Cur q = 1
+0 23
+0 35
+0 73
+0 ED
+0 10
+0 00
+0 00
+received msg s 4333
+Cur q = 1
+0 23
+0 35
+0 6C
+0 53
+0 00
+0 00
+0 00
+received msg l 83
+Cur q = 1
+0 23
+0 35
+0 6C
+0 42
+0 00
+0 00
+0 00
+received msg l 66
+Cur q = 1
+0 23
+0 35
+0 73
+0 94
+0 02
+0 00
+0 00
+received msg s 660
+Cur q = 1
+0 23
+0 35
+0 73
+0 94
+0 02
+0 00
+0 00
+received msg s 660
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Write OK
+Same data!!
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 6C
+0 81
+0 00
+0 00
+0 00
+received msg l 129
+Cur q = 1
+0 23
+0 35
+0 73
+0 21
+0 0B
+0 00
+0 00
+received msg s 2849
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Write OK
+Same data!!
+Same data!!
+0 32
+received msg p 2
+Cur q = 1
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+=========setting.==========
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 1
+Send out data
+0 23
+0 35
+0 4C
+0 C7
+0 03
+0 00
+0 00
+received msg L 967
+Cur q = 1
+0 23
+0 35
+0 4C
+0 EA
+0 04
+0 00
+0 00
+received msg L 1258
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+=========setting.==========
+0 30
+received msg r 0
+Cur q = 1
+Send out data
+0 23
+0 35
+0 6C
+0 06
+0 01
+0 00
+0 00
+received msg l 262
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Same data!!
+Same data!!
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 64
+0 03
+0 00
+0 00
+0 00
+received msg d 3
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Write OK
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 64
+0 00
+0 00
+0 00
+0 00
+received msg d 0
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Write OK
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 1A
+0 FF
+0 FF
+0 FF
+0 23
+0 35
+0 64
+0 05
+0 00
+0 00
+0 00
+received msg d 5
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Same data!!
+Write OK
+0 32
+received msg p 2
+Cur q = 1
+==========home.============
+0 23
+0 32
+0 70
+0 33
+received msg p 3
+Cur q = 1
+0 23
+0 32
+0 72
+0 30
+received msg r 0
+Cur q = 2
+=========setting.==========
+Send out data
+0 23
+0 35
+0 64
+0 02
+0 00
+0 00
+0 00
+received msg d 2
+Cur q = 1
+0 23
+0 35
+0 6C
+0 36
+0 00
+0 00
+0 00
+received msg l 54
+Cur q = 1
+0 23
+0 35
+0 73
+0 F2
+0 11
+0 00
+0 00
+received msg s 4594
+Cur q = 1
+0 23
+0 32
+0 7A
+0 30
+received msg z 0
+Cur q = 1
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 2
+Same data!!
+Same data!!
+Same data!!
+Write OK
+Write OK
+Same data!!
+Write OK
+==========home.============
+0 1A
+0 FF
+0 FF
+1 FF
+0 23
+0 32
+0 70
+0 30
+received msg p 0
+Cur q = 1
+0 1A
+0 FF
+0 FF
+0 FF
+0 23
+0 32
+0 70
+0 31
+received msg p 1
+Cur q = 1
+========identify.==========
+0 1A
+0 FF
+0 FF
+0 FF
+Send out data
+0 23
+0 32
+0 70
+0 32
+received msg p 2
+Cur q = 1
+==========home.============
