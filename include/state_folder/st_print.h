@@ -12,11 +12,12 @@ void print_l()
   if(get_lastest_cmd(msg)) {
     if(msg.msgid=='p') {
       uint8_t pageid = (char)msg.data[0]-'0';
-      if(pageid == PAGE_USER_KEY_OIL) {
-        nextion_write("page user_key_oil");
-        fsm.trigger(BACKWARD_1); 
-      }
+      if(pageid == PAGE_USER_KEY_OIL)    fsm.trigger(BACKWARD_1);  
       if(pageid == PAGE_PRINT)           nextion_write("selfcheck.en=0");
+    }
+    if(msg.msgid=='b') {
+      uint8_t pageid = (char)msg.data[0]-'0';
+      if(pageid == PAGE_USER_KEY_OIL)    nextion_write("page user_key_oil");   
     }
     if(msg.msgid=='r') {
       uint8_t val = (char)msg.data[0]-'0';

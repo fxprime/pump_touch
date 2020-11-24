@@ -39,14 +39,18 @@ static inline void card_reader_runing() {
 }
 
 
-void taskTwo( void * parameter )
-{
-    while(1) {
-        esp_task_wdt_reset();
-        card_reader_runing(); 
-    }
+// void taskWiegan( void * parameter )
+// {
+//     while(1) {
+//         esp_task_wdt_reset();
+//         card_reader_runing(); 
+//         // taskYIELD();
+//     }
+
+//     Serial.println("Ending taskWiegan");
+//     vTaskDelete( NULL );
     
-}
+// }
 // Notifies when a reader has been connected or disconnected.
 // Instead of a message, the seconds parameter can be anything you want -- Whatever you specify on `wiegand.onStateChange()`
 void stateChanged(bool plugged, const char* message) {

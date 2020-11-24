@@ -18,6 +18,11 @@ void home_l()
       if(pageid == PAGE_USER_SEL_TYPE)  fsm.trigger(FORWARD_3);
       if(pageid == PAGE_IDENTIFY)       fsm.trigger(BACKWARD_1); 
       if(pageid == PAGE_HOME)           nextion_write("selfcheck.en=0");
+    }else if(msg.msgid=='b') {
+      uint8_t pageid = (char)msg.data[0]-'0';
+      if(pageid == PAGE_SETTING)        nextion_write("page setting");
+      if(pageid == PAGE_REPORT)         nextion_write("page report");
+      if(pageid == PAGE_USER_SEL_TYPE)  nextion_write("page user_sel_type"); 
     }else if(msg.msgid=='o') {
       Login(false);
     }else if(msg.msgid=='m') {

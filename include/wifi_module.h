@@ -131,7 +131,7 @@ static inline void udp_receive_ntp() {
 			time_t raw = epoch;
 			struct tm dt = getDateTimeFromEpoch(raw);
 			Clock.setYear	(dt.tm_year+1900-2000);
-    		Clock.setMonth	(dt.tm_mon);
+    		Clock.setMonth	(dt.tm_mon + 1);
     		Clock.setDate	(dt.tm_mday);
     		Clock.setDoW	(dt.tm_wday);
     		Clock.setHour	(dt.tm_hour);

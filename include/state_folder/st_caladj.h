@@ -1,9 +1,14 @@
 float temp_cal = 1.00;
 
 void caladj_in() {
-  setPage(PAGE_CAL_ADJUST);      
-  Serial.println("=========cal adjust.========");
-  temp_cal = _cal_l_ratio_comp[GetOilType()];
+    setPage(PAGE_CAL_ADJUST);      
+    Serial.println("=========cal adjust.========");
+    temp_cal = _cal_l_ratio_comp[GetOilType()];
+
+
+    nextion_write( "t1.txt=\"" + String(temp_cal,3) + "\"" );
+    double temp_val = (double)_cur_user.amout_tick[GetOilType()]*L_PER_PULSE*temp_cal;
+    nextion_write( "x0.val=" + String( (long)( temp_val*100 ) ) );
 
 }
 
@@ -63,18 +68,22 @@ void caladj_l()
                 temp_cal-=0.001;
 
             }
+
+            nextion_write( "t1.txt=\"" + String(temp_cal,3) + "\"" );
+            double temp_val = (double)_cur_user.amout_tick[GetOilType()]*L_PER_PULSE*temp_cal;
+            nextion_write( "x0.val=" + String( (long)( temp_val*100 ) ) );
         } 
     }
 
-    time_ut cur_time = getUTime();
-    static time_ut last_send = 0;
-    if( cur_time - last_send > 300000 ) {
-        last_send = cur_time;
-        nextion_write( "t1.txt=\"" + String(temp_cal,3) + "\"" );
+    // time_ut cur_time = getUTime();
+    // static time_ut last_send = 0;
+    // if( cur_time - last_send > 300000 ) {
+    //     last_send = cur_time;
+    //     nextion_write( "t1.txt=\"" + String(temp_cal,3) + "\"" );
 
-        double temp_val = (double)_cur_user.amout_tick[GetOilType()]*L_PER_PULSE*temp_cal;
-        nextion_write( "x0.val=" + String( (long)( temp_val*100 ) ) );
-    }
+    //     double temp_val = (double)_cur_user.amout_tick[GetOilType()]*L_PER_PULSE*temp_cal;
+    //     nextion_write( "x0.val=" + String( (long)( temp_val*100 ) ) );
+    // }
 
     
 }

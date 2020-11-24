@@ -90,6 +90,11 @@ typedef struct {
   uint8_t lenp;
   uint8_t data[64];
 }cmd_t;
+typedef struct {
+  String    msg;
+  time_ut   timestamp; 
+  bool      was_send;
+}dataOut_t;
 
 /* ------------------------------- User struct ------------------------------ */
 typedef struct {
@@ -157,6 +162,8 @@ std::queue<cmd_t>   _cmd_q;
 user_t              _cur_user;
 page_t              _cur_page;
 time_ut             _oil_meter_st=0;
+std::queue<dataOut_t>  _dataOut_q;
+time_ut             _dataOut_fail_ts;
 
 /* ---------------------------- Setpoint variable --------------------------- */
 double      _oil_sp              =SP_L_DEFAULT;
@@ -366,7 +373,7 @@ static inline void setOilType(uint8_t type) {
 }
 
 
-inline void nextion_write(const String& msgout);
+static inline void nextion_write(const String& msgout);
 
 static inline void SendParameters() {
     String dataout; 

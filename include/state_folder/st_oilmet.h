@@ -23,32 +23,34 @@ void oilmet_l()
         flowmeter_result();
         if(_cur_user.amout_tick[GetOilType()]==0) updateToSDCard("CancelFill");
         else                                      updateToSDCard("FillWOPrint");
-        Liter_tick_reset();
-        nextion_write("page user_key_oil"); 
+        Liter_tick_reset(); 
         fsm.trigger(BACKWARD_1);
       }
       if(pageid == PAGE_PRINT){ 
         pump_stop();
         flowmeter_result();
         updateToSDCard("FillandPrint");
-        Liter_tick_reset();
-        nextion_write("page print");
+        Liter_tick_reset(); 
         fsm.trigger(FORWARD_1);
       }
       if(pageid == PAGE_CAL_ADJUST){
         pump_stop();
         
-        updateToSDCard("Calibrate");
-        nextion_write("page cal_adjust");
+        updateToSDCard("Calibrate"); 
         fsm.trigger(FORWARD_2);
       }
       if(pageid == PAGE_OIL_METER)           nextion_write("selfcheck.en=0");
+    }else if(msg.msgid=='b') {
+      uint8_t pageid = (char)msg.data[0]-'0';
+      if(pageid == PAGE_USER_KEY_OIL)   nextion_write("page user_key_oil");   
+      if(pageid == PAGE_PRINT)          nextion_write("page print"); 
+      if(pageid == PAGE_CAL_ADJUST)     nextion_write("page cal_adjust");  
     }else if(msg.msgid=='n') {
       float sp = (float)toLong(msg.data)/100.0;
       Serial.printf("Setpoint = %.2f\n", sp);
       Liter_SP_set(sp);
       nextion_write("oil_sp_recheck.val="+String(toLong(msg.data)));
-    }else if(msg.msgid=='b') {
+    }else if(msg.msgid=='y') {
       uint8_t play = (char)msg.data[0]-'0';
       if(play && !oil_meet_setpoint)  pump_start();
       else                            pump_stop();

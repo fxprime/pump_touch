@@ -14,18 +14,30 @@ void clkset_l() {
             uint8_t pageid = (uint8_t)atoi((char*)&msg.data[0]);
             Serial.printf("********* data %d *************\n", pageid);
             if(pageid == PAGE_HOME)   {
-                wifi_stop();
-                nextion_write("page home");  
+                wifi_stop(); 
                 fsm.trigger(BACKWARD_1);
             }
             if(pageid == PAGE_WAIT_WIFI) nextion_write("selfcheck.en=0");
+
+
+        }else if(msg.msgid=='b') {
+            uint8_t pageid = (uint8_t)atoi((char*)&msg.data[0]);
+            Serial.printf("********* data %d *************\n", pageid);
+            if(pageid == PAGE_HOME)   { 
+                nextion_write("page home");   
+            } 
+
+
         }else if(msg.msgid=='j') {
             uint8_t con = (char)msg.data[0]-'0';
             if(con == 1)   {
+                nextion_write("b0.txt=\"Connecting..\"");  
+                delay(100);
                 wifi_start();
                 last_connect = getUTime();
-                nextion_write("b0.txt=\"Connecting..\"");  
             }
+
+            
         }
     }
 

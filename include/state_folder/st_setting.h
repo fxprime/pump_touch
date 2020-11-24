@@ -7,12 +7,15 @@ void setting_l()
     if(msg.msgid=='p') {
       uint8_t pageid = (uint8_t)atoi((char*)&msg.data[0]);
       Serial.printf("Chars %c %c page = %d\n", (char)msg.data[0], (char)msg.data[1], pageid);
-      if(pageid == PAGE_HOME) fsm.trigger(BACKWARD_1);
-      if(pageid == PAGE_SETTING)           nextion_write("selfcheck.en=0");
-      if(pageid == PAGE_WAIT_WIFI)  {
-        nextion_write("page wait_wifi");
-        fsm.trigger(FORWARD_1);
-      }
+      if(pageid == PAGE_HOME)       fsm.trigger(BACKWARD_1);
+      if(pageid == PAGE_WAIT_WIFI)  fsm.trigger(FORWARD_1);
+      if(pageid == PAGE_SETTING)    nextion_write("selfcheck.en=0");
+      
+    }else if(msg.msgid=='b') {
+      uint8_t pageid = (uint8_t)atoi((char*)&msg.data[0]);
+      Serial.printf("Chars %c %c page = %d\n", (char)msg.data[0], (char)msg.data[1], pageid);
+      if(pageid == PAGE_HOME)       nextion_write("page home"); 
+      if(pageid == PAGE_WAIT_WIFI)  nextion_write("page wait_wifi");  
     }else if(msg.msgid=='L') {
       _l_max = (float)toLong(msg.data)/100.0; 
     }else if(msg.msgid=='l') {

@@ -269,7 +269,7 @@ static inline void printThermal() {
     time_t raw = _cur_user.startpump_epoch;
     struct tm datetime = getDateTimeFromEpoch(raw);
 
-    String date = String(datetime.tm_mday) + "/" + String(datetime.tm_mon) + "/" + String(datetime.tm_year+1900);
+    String date = String(datetime.tm_mday) + "/" + String(datetime.tm_mon+1) + "/" + String(datetime.tm_year+1900);
     strcpy(m, date.c_str());
     // sprintf(m, "%d/%d/%d", 31,10,2563);
     thp.replaceMacro("$date",(uint8_t*)m,strlen(m));
